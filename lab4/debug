@@ -1,0 +1,12 @@
+#! /bin/bash
+
+set -x
+
+hello() {
+  echo "Hello world, $1"
+  echo $2
+}
+
+echo "This is the hello script"
+hello David "Have a nice day"
+

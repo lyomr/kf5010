@@ -1,0 +1,5 @@
+#!/bin/bash
+for n in `cat sample.text`
+do
+	echo word is $n
+done
