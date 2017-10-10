@@ -1,0 +1,13 @@
+ps -f  
+  --check processes
+ps -- 
+
+kill processes
+kill -TERM <id>
+kill -KILL <id>
+
+
+ps --user $(whoami) {checks process under current user}
+ps --user $(whoami) --forest    {tree view}
+pstree
+top   {realtime view of processes}
