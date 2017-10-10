@@ -1,0 +1,7 @@
+#!/bin/bash
+for n in *
+do
+	echo file is $n
+	echo file size is
+	ls -hs $n
+done

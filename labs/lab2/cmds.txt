@@ -1,0 +1,19 @@
+whatis -- one liner about what a command does
+
+who -- user logged in
+
+sort -- sorting
+
+apropos [something] -- finds command with name [something]
+
+which [mdkir] -- finds executable for mkdir 
+
+chmod go-rwx biglist --removes read write and execute permissions on the file biglist 
+
+chmod a+rw biglist  -- gives read and write permissions on the file biglist to all
+
+df . -- reports on the space left on the file system
+
+du -- outputs the number of kilobyes used by each subdirectory
+
+file * = lassifies the named files according to the type of data they contain

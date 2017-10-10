@@ -1,0 +1,5 @@
+#!/bin/bash
+mkdir $1/src
+mkdir $1/bin
+touch $1/makefile
+
