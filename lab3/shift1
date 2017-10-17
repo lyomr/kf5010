@@ -1,8 +1,0 @@
-#!/bin/bash
-total=0
-while [ "$1" != "" ]
-do
- total=$((total+$1))
- shift
-done
-echo $total

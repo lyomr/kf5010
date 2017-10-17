@@ -1,4 +1,0 @@
-#!/bin/bash
-read -p "what is your name?: " first last
-echo "Hello $first"
-echo "in the phone book you would be \"$last, $first\""

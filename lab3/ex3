@@ -1,7 +1,0 @@
-#!/bin/bash
-for n in *
-do
-	echo file is $n
-	echo file info:
-	file $n
-done

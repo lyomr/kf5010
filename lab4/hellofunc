@@ -1,9 +1,0 @@
-#!/bin/bash
-
-hello() {
-  echo "Hello world"
-
-}
-
-echo "This is the hello script"
-hello
