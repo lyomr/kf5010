@@ -1,31 +1,33 @@
-#include <unistd.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <pthread.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
+#include <unistd.h>
 #include <assert.h>
+#include <pthread.h>
+#include <time.h>
 
-int globvar = 6;
+#include "console.h"
 
-void *simple_thr(void *arg) {
-      globvar++; 
-      // var++; Notice this variable is not accessible
-      printf("New thread : pid = %d, tid = 0x%lx, globvar = %d, "
-              "var = %s\n", getpid(), (unsigned long)pthread_self(),
-              globvar, "Not accessible");
-      pthread_exit(NULL);
+void *led_toggle_white_thr(void * arg) {
+    while (true) {
+        led_toggle(LED_WHITE);
+        usleep(1000000);
+    }
+    pthread_exit(NULL);
 }
 
-int main(void) {
-  int rc;
-  int var = 88;
-  pthread_t thread;
+int main (void) {
+    pthread_t thread;
+    int rc;
 
-  printf("before thread create\n");
-  rc = pthread_create(&thread, NULL, simple_thr, NULL);
-  assert(rc == 0);
-  pthread_join(thread, NULL);
-  printf("Main thread: pid = %d, tid = 0x%lx, globvar = %d, " 
-         "var = %d\n", getpid(), (unsigned long)pthread_self(), globvar, var);
-  exit(0);
+    console_init();
+
+    rc = pthread_create(&thread, NULL, led_toggle_white_thr, NULL);
+    assert(rc == 0);
+
+    rc = pthread_join(thread, NULL);
+    assert(rc == 0);
+
+    exit(0);
 }
-
