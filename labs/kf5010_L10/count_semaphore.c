@@ -41,9 +41,9 @@ void *count1_thr(void * arg) {
         assert((count1 + count2) == total);
         lcd_write_at(1, 0, "count1 = %20d", count1);
 
-        rc = sem_post(&lcd_sem);
-        assert(rc == 0);
         rc = sem_post(&compute_sem);
+        assert(rc == 0);
+        rc = sem_post(&lcd_sem);
         assert(rc == 0);
     }
 }
@@ -52,9 +52,9 @@ void *count2_thr(void * arg) {
     int rc;
 
     while (true) {
-        rc = sem_wait(&lcd_sem);
-        assert(rc == 0);
         rc = sem_wait(&compute_sem);
+        assert(rc == 0);
+        rc = sem_wait(&lcd_sem);
         assert(rc == 0);
 
         count2 += 1;
@@ -63,9 +63,9 @@ void *count2_thr(void * arg) {
         assert((count1 + count2) == total);
         lcd_write_at(2, 0, "count2 = %20d", count2);
 
-        rc = sem_post(&lcd_sem);
-        assert(rc == 0);
         rc = sem_post(&compute_sem);
+        assert(rc == 0);
+        rc = sem_post(&lcd_sem);
         assert(rc == 0);
     }
 }
